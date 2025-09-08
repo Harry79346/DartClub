@@ -1,7 +1,16 @@
+using DartClub.Infrastructure.Persistence;      // der AppDbContext
+using Microsoft.EntityFrameworkCore;            // UseSqlServer-Extension
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Registriert EF Core mit dem SQL Server-Provider und liest den Connection String "Default".
+// Ergebnis: Wenn irgendwo AppDbContext benötigt wird (z. B. im Service), liefert DI eine Instanz.
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 var app = builder.Build();
 
