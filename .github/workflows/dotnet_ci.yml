@@ -1,0 +1,34 @@
+# Minimaler CI-Workflow: baut die Solution und führt Tests aus.
+# Läuft NICHT auf main bei direkten Pushes, nur auf develop/feature und bei PRs.
+
+name: .NET CI (minimal)
+
+on:
+  push:
+    branches: [ develop, 'feature/**' ]   # tägliche Arbeit
+  pull_request:
+    branches: [ main, develop ]           # PRs werden geprüft
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest                # frische Linux-VM
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4        # lädt deinen Code
+
+      - name: Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x          # .NET 9 SDK installieren
+
+      - name: Restore
+        run: dotnet restore              # NuGet-Pakete laden
+
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore
+        # '--no-restore', weil Restore schon lief
+
+      - name: Test
+        run: dotnet test --configuration Release --no-build --logger "trx"
+        # führt alle Tests aus; TRX-Log nutzen wir später, um Artefakte hochzuladen
