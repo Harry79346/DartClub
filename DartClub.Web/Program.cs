@@ -1,3 +1,5 @@
+using DartClub.Application.Abstractions;
+using DartClub.Infrastructure.Members;
 using DartClub.Infrastructure.Persistence;      // der AppDbContext
 using Microsoft.EntityFrameworkCore;            // UseSqlServer-Extension
 
@@ -11,6 +13,10 @@ builder.Services.AddControllersWithViews();
 // Ergebnis: Wenn irgendwo AppDbContext benötigt wird (z. B. im Service), liefert DI eine Instanz.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+// Hier sage ich dem DI-Container:
+// "Wenn jemand IMemberService braucht, nimm MemberService."
+builder.Services.AddScoped<IMemberService, MemberService>();
 
 var app = builder.Build();
 

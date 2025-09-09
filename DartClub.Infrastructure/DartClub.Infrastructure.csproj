@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DartClub.Application\DartClub.Application.csproj" />
     <ProjectReference Include="..\DartClub.Domain\DartClub.Domain.csproj" />
   </ItemGroup>
 
