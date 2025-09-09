@@ -34,5 +34,22 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+// Dieser Block sorgt dafür, dass bei Entwicklungsstarts die DB auf dem aktuellen Stand ist
+// und (falls leer) Seed-Daten bekommt.
+if (app.Environment.IsDevelopment())
+{
+    // Ein Scope liefert uns einen kurzlebigen DI-Container
+    using var scope = app.Services.CreateScope();
+
+    // DbContext aus DI ziehen
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    // 1) Schema auf neuesten Stand bringen (führt ausstehende Migrationen aus)
+    //    Achtung: Für Dev bequem; in Produktion lieber Migrations explizit ausrollen.
+    db.Database.Migrate();
+
+    // 2) Seed-Daten einfügen (nur wenn Tabelle leer)
+    await DbInitializer.SeedAsync(db);
+}
 
 app.Run();
