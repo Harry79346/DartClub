@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DartClub.Web", "DartClub.Web\DartClub.Web.csproj", "{3835BEF5-34D9-4C28-9B44-E3B48B282C43}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DartClub.Application", "DartClub.Application\DartClub.Application.csproj", "{E43C77F4-5DA9-4F1F-9457-718CC1A9715B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DartClub.Infrastructure", "DartClub.Infrastructure\DartClub.Infrastructure.csproj", "{B77A814C-C427-4282-9E41-59876C4DEFB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A36015B5-CF55-461D-813F-DEFD143F4500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeTest", "SmokeTest\SmokeTest.csproj", "{FFD46A0F-8971-4668-8426-D0C003FF9FA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{B77A814C-C427-4282-9E41-59876C4DEFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B77A814C-C427-4282-9E41-59876C4DEFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B77A814C-C427-4282-9E41-59876C4DEFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD46A0F-8971-4668-8426-D0C003FF9FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD46A0F-8971-4668-8426-D0C003FF9FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD46A0F-8971-4668-8426-D0C003FF9FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD46A0F-8971-4668-8426-D0C003FF9FA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +52,7 @@ Global
 		{DB835F30-BAD7-4C77-9451-7A25B78A9473} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E43C77F4-5DA9-4F1F-9457-718CC1A9715B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{B77A814C-C427-4282-9E41-59876C4DEFB8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{FFD46A0F-8971-4668-8426-D0C003FF9FA0} = {A36015B5-CF55-461D-813F-DEFD143F4500}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21B56F28-3D54-48B4-98DF-7651C5FE4B41}
